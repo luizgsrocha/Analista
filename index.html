@@ -1,933 +1,161 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Direito Tributário — Resumo para Concursos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Materiais de estudo para o concurso de Analista-Tributário da Receita Federal.">
+  <title>Analista da Receita Federal — Materiais de Estudo</title>
+  <style>
+    :root {
+      --background: #f3f6fa;
+      --surface: #ffffff;
+      --primary: #17365d;
+      --primary-light: #e8eef6;
+      --text: #1f2937;
+      --muted: #64748b;
+      --border: #d9e0e7;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
 
-    <style>
-        :root {
-            --bg: #f4f6f8;
-            --card: #ffffff;
-            --text: #1f2937;
-            --muted: #64748b;
-            --primary: #17365d;
-            --primary-light: #e8eef6;
-            --border: #d9e0e7;
-            --success: #166534;
-            --success-bg: #ecfdf3;
-            --warning: #92400e;
-            --warning-bg: #fff7ed;
-            --danger: #991b1b;
-            --danger-bg: #fef2f2;
-            --shadow: 0 4px 16px rgba(15, 23, 42, 0.07);
-        }
+    * { box-sizing: border-box; }
 
-        * {
-            box-sizing: border-box;
-        }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--background);
+      line-height: 1.6;
+    }
 
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
+    header {
+      padding: 54px 20px;
+      color: #fff;
+      background: linear-gradient(135deg, #17365d, #244f7d);
+    }
 
-        header {
-            background: linear-gradient(135deg, #17365d, #244f7d);
-            color: white;
-            padding: 45px 20px;
-        }
+    .header-content,
+    main {
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto;
+    }
 
-        .header-content {
-            max-width: 1150px;
-            margin: auto;
-        }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      line-height: 1.15;
+    }
 
-        header h1 {
-            margin: 0 0 8px;
-            font-size: 34px;
-        }
+    header p {
+      max-width: 720px;
+      margin: 0;
+      opacity: 0.9;
+    }
 
-        header p {
-            margin: 0;
-            opacity: 0.9;
-            font-size: 16px;
-        }
+    main { padding: 36px 0 56px; }
 
-        .container {
-            max-width: 1150px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
+    .intro { margin-bottom: 24px; }
 
-        .priority-box {
-            background: var(--warning-bg);
-            border-left: 5px solid #f59e0b;
-            padding: 18px 20px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-        }
+    .intro h2 {
+      margin: 0 0 6px;
+      color: var(--primary);
+    }
 
-        .priority-box strong {
-            color: var(--warning);
-        }
+    .intro p {
+      margin: 0;
+      color: var(--muted);
+    }
 
-        .section {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 28px;
-            margin-bottom: 25px;
-            box-shadow: var(--shadow);
-        }
+    .subjects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 18px;
+    }
 
-        h2 {
-            color: var(--primary);
-            border-bottom: 2px solid var(--primary-light);
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
+    .card {
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+      padding: 24px;
+      color: inherit;
+      text-decoration: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    }
 
-        h3 {
-            color: #274c77;
-            margin-top: 25px;
-        }
+    .card:hover,
+    .card:focus-visible {
+      transform: translateY(-3px);
+      border-color: var(--primary);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.13);
+      outline: none;
+    }
 
-        .tag {
-            display: inline-block;
-            background: var(--primary-light);
-            color: var(--primary);
-            padding: 4px 9px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-right: 5px;
-        }
+    .icon {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 18px;
+      place-items: center;
+      font-size: 25px;
+      background: var(--primary-light);
+      border-radius: 12px;
+    }
 
-        .high {
-            background: #fee2e2;
-            color: var(--danger);
-        }
+    .card h3 {
+      margin: 0 0 8px;
+      color: var(--primary);
+      font-size: 1.3rem;
+    }
 
-        .medium {
-            background: #fef3c7;
-            color: var(--warning);
-        }
+    .card p {
+      margin: 0 0 20px;
+      color: var(--muted);
+    }
 
-        .law {
-            background: var(--success-bg);
-            color: var(--success);
-        }
+    .access {
+      margin-top: auto;
+      color: var(--primary);
+      font-weight: 700;
+    }
 
-        ul {
-            padding-left: 22px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .highlight {
-            background: var(--primary-light);
-            border-left: 4px solid var(--primary);
-            padding: 15px 18px;
-            margin: 18px 0;
-            border-radius: 5px;
-        }
-
-        .warning {
-            background: var(--warning-bg);
-            border-left: 4px solid #f59e0b;
-            padding: 15px 18px;
-            margin: 18px 0;
-            border-radius: 5px;
-        }
-
-        .danger {
-            background: var(--danger-bg);
-            border-left: 4px solid #ef4444;
-            padding: 15px 18px;
-            margin: 18px 0;
-            border-radius: 5px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 14px;
-        }
-
-        th {
-            background: var(--primary);
-            color: white;
-            padding: 12px;
-            text-align: left;
-        }
-
-        td {
-            padding: 11px 12px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        tr:nth-child(even) {
-            background: #f8fafc;
-        }
-
-        .yes {
-            color: var(--success);
-            font-weight: bold;
-        }
-
-        .no {
-            color: var(--danger);
-            font-weight: bold;
-        }
-
-        .trap {
-            border: 1px solid #fecaca;
-            background: #fffafa;
-            padding: 15px;
-            border-radius: 7px;
-            margin: 12px 0;
-        }
-
-        .trap strong {
-            color: var(--danger);
-        }
-
-        .technical {
-            background: #eef2ff;
-            border: 1px solid #c7d2fe;
-            border-radius: 9px;
-            padding: 22px;
-        }
-
-        .technical h3 {
-            margin-top: 0;
-            color: #3730a3;
-        }
-
-        .checklist {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .check {
-            background: #f8fafc;
-            border: 1px solid var(--border);
-            border-radius: 7px;
-            padding: 12px;
-        }
-
-        footer {
-            text-align: center;
-            color: var(--muted);
-            padding: 30px 20px 50px;
-            font-size: 13px;
-        }
-
-        @media (max-width: 700px) {
-            header h1 {
-                font-size: 27px;
-            }
-
-            .section {
-                padding: 20px;
-            }
-
-            table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
-        }
-
-        @media print {
-            body {
-                background: white;
-            }
-
-            .section {
-                box-shadow: none;
-                break-inside: avoid;
-            }
-
-            header {
-                background: var(--primary);
-            }
-        }
-    </style>
+    footer {
+      padding: 24px 20px 38px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
-
 <body>
-
-<header>
+  <header>
     <div class="header-content">
-        <h1>Direito Tributário</h1>
-        <p>Resumo estratégico — Limitações Constitucionais ao Poder de Tributar</p>
-        <p>Material direcionado à revisão para concursos públicos</p>
+      <h1>Analista da Receita Federal</h1>
+      <p>Materiais organizados para estudo e revisão dos conteúdos do concurso.</p>
     </div>
-</header>
+  </header>
 
-<main class="container">
-
-    <div class="priority-box">
-        <strong>🎯 PRIORIDADE DE ESTUDO</strong>
-        <p>
-            Os temas de maior incidência são:
-            <strong>legalidade tributária, exceções à legalidade,
-            anterioridade anual, noventena, isonomia, capacidade contributiva
-            e não confisco.</strong>
-        </p>
-    </div>
-
-    <!-- LEGALIDADE -->
-    <section class="section">
-        <h2>1. Legalidade Tributária</h2>
-
-        <span class="tag high">ALTA INCIDÊNCIA</span>
-        <span class="tag law">CF, art. 150, I</span>
-        <span class="tag law">CTN, art. 97</span>
-
-        <p>
-            É vedado aos entes federativos <strong>exigir ou aumentar tributo
-            sem lei que o estabeleça</strong>.
-        </p>
-
-        <div class="highlight">
-            <strong>Regra fundamental:</strong>
-            instituição ou majoração de tributo depende de lei.
-        </div>
-
-        <h3>O que normalmente exige lei?</h3>
-
-        <ul>
-            <li>Instituição de tributo;</li>
-            <li>Extinção de tributo;</li>
-            <li>Majoração de tributo;</li>
-            <li>Redução de tributo;</li>
-            <li>Definição do fato gerador;</li>
-            <li>Definição do sujeito passivo;</li>
-            <li>Fixação da alíquota e da base de cálculo, nos termos legais.</li>
-        </ul>
-
-        <h3>Atualização monetária ≠ aumento de tributo</h3>
-
-        <p>
-            A mera atualização do valor monetário da base de cálculo por
-            índice oficial de correção não representa majoração do tributo.
-        </p>
-
-        <div class="warning">
-            <strong>Pegadinha:</strong> se o índice utilizado superar o índice
-            oficial de correção monetária, o excesso pode representar verdadeiro
-            aumento tributário, submetendo-se à exigência de lei.
-        </div>
-
-        <h3>Alteração do prazo para pagamento</h3>
-
-        <p>
-            A alteração da data de vencimento do tributo não está submetida,
-            em regra, à reserva legal do art. 97 do CTN.
-        </p>
-
-        <div class="danger">
-            <strong>Atenção:</strong> não confunda alteração do prazo de
-            pagamento com majoração do tributo.
-        </div>
-
-        <h3>Obrigações acessórias</h3>
-
-        <p>
-            Obrigações acessórias podem ser instituídas por atos infralegais,
-            desde que exista fundamento na legislação tributária.
-        </p>
-
-        <div class="highlight">
-            <strong>CTN, art. 113, §2º:</strong>
-            a obrigação acessória decorre da legislação tributária.
-        </div>
+  <main>
+    <section class="intro" aria-labelledby="materias">
+      <h2 id="materias">Matérias</h2>
+      <p>Selecione uma matéria para abrir o respectivo material de revisão.</p>
     </section>
 
-    <!-- EXCEÇÕES -->
-    <section class="section">
-        <h2>2. Exceções à Legalidade</h2>
-
-        <span class="tag high">DECORAR</span>
-
-        <p>
-            A Constituição permite que o Poder Executivo altere determinadas
-            <strong>alíquotas</strong>, dentro das condições e limites
-            estabelecidos em lei.
-        </p>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Tributo</th>
-                    <th>Possibilidade de alteração de alíquota por ato do Executivo</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>II — Imposto de Importação</td>
-                    <td class="yes">SIM</td>
-                </tr>
-                <tr>
-                    <td>IE — Imposto de Exportação</td>
-                    <td class="yes">SIM</td>
-                </tr>
-                <tr>
-                    <td>IPI</td>
-                    <td class="yes">SIM</td>
-                </tr>
-                <tr>
-                    <td>IOF</td>
-                    <td class="yes">SIM</td>
-                </tr>
-                <tr>
-                    <td>CIDE-combustíveis</td>
-                    <td class="yes">SIM</td>
-                </tr>
-                <tr>
-                    <td>ICMS-combustíveis</td>
-                    <td class="yes">SIM</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="warning">
-            <strong>Armadilha clássica:</strong>
-            a exceção normalmente alcança a <strong>alíquota</strong>.
-            Não significa autorização geral para criar ou aumentar qualquer
-            elemento do tributo por decreto.
-        </div>
+    <section class="subjects" aria-label="Lista de matérias">
+      <a class="card" href="dirtrib.html">
+        <span class="icon" aria-hidden="true">⚖️</span>
+        <h3>Direito Tributário</h3>
+        <p>Limitações constitucionais ao poder de tributar, princípios, anterioridades e pegadinhas de concurso.</p>
+        <span class="access">Abrir material →</span>
+      </a>
     </section>
-
-    <!-- MP -->
-    <section class="section">
-        <h2>3. Medida Provisória e Direito Tributário</h2>
-
-        <p>
-            Medida provisória pode tratar de matéria tributária, observadas
-            as matérias reservadas constitucionalmente à lei complementar.
-        </p>
-
-        <h3>Exemplos de matérias reservadas à Lei Complementar</h3>
-
-        <ul>
-            <li>Empréstimos compulsórios;</li>
-            <li>Impostos residuais da União;</li>
-            <li>Contribuições residuais;</li>
-            <li>Imposto sobre Grandes Fortunas — IGF;</li>
-            <li>Imposto Seletivo;</li>
-            <li>IBS;</li>
-            <li>CBS.</li>
-        </ul>
-    </section>
-
-    <!-- ISONOMIA -->
-    <section class="section">
-        <h2>4. Isonomia Tributária</h2>
-
-        <span class="tag high">ALTA INCIDÊNCIA</span>
-        <span class="tag law">CF, art. 150, II</span>
-
-        <p>
-            É vedado instituir tratamento desigual entre contribuintes que se
-            encontrem em situação equivalente.
-        </p>
-
-        <div class="highlight">
-            <strong>Ideia central:</strong>
-            situações equivalentes devem receber tratamento equivalente,
-            admitindo-se diferenciações justificadas pelas próprias
-            características constitucionalmente relevantes.
-        </div>
-
-        <div class="danger">
-            <strong>Pegadinha:</strong>
-            isonomia tributária não significa necessariamente cobrar exatamente
-            o mesmo valor de todos.
-        </div>
-    </section>
-
-    <!-- CAPACIDADE -->
-    <section class="section">
-        <h2>5. Capacidade Contributiva</h2>
-
-        <span class="tag high">ALTA INCIDÊNCIA</span>
-        <span class="tag law">CF, art. 145, §1º</span>
-
-        <p>
-            Sempre que possível, os impostos terão caráter pessoal e serão
-            graduados segundo a capacidade econômica do contribuinte.
-        </p>
-
-        <p>
-            A Administração Tributária pode identificar patrimônio, rendimentos
-            e atividades econômicas do contribuinte, respeitados os direitos
-            individuais e os termos da lei.
-        </p>
-
-        <h3>Como pode ser concretizada?</h3>
-
-        <ul>
-            <li>Progressividade das alíquotas;</li>
-            <li>Graduação da base de cálculo;</li>
-            <li>Consideração da situação econômica do contribuinte.</li>
-        </ul>
-
-        <div class="highlight">
-            <strong>Relação importante:</strong>
-            capacidade contributiva está diretamente relacionada à busca de
-            uma tributação compatível com a situação econômica do contribuinte.
-        </div>
-    </section>
-
-    <!-- NÃO CONFISCO -->
-    <section class="section">
-        <h2>6. Princípio do Não Confisco</h2>
-
-        <span class="tag high">ALTA INCIDÊNCIA</span>
-
-        <p>
-            O tributo não pode ser utilizado com efeito de confisco.
-        </p>
-
-        <p>
-            O princípio funciona como limite à atividade tributária estatal,
-            impedindo uma tributação excessivamente gravosa.
-        </p>
-
-        <div class="warning">
-            <strong>Para prova:</strong>
-            não confundir elevada carga tributária com confisco automaticamente.
-            A análise depende das circunstâncias concretas e do efeito da
-            tributação.
-        </div>
-    </section>
-
-    <!-- ANTERIORIDADE -->
-    <section class="section">
-        <h2>7. Anterioridade Anual</h2>
-
-        <span class="tag high">ALTÍSSIMA INCIDÊNCIA</span>
-
-        <p>
-            Como regra, o tributo instituído ou majorado em determinado exercício
-            somente poderá ser cobrado no exercício financeiro seguinte.
-        </p>
-
-        <div class="highlight">
-            <strong>Memorização:</strong>
-            anterioridade anual = <strong>“ano seguinte”</strong>.
-        </div>
-
-        <h3>Principais exceções</h3>
-
-        <ul>
-            <li>II;</li>
-            <li>IE;</li>
-            <li>IPI;</li>
-            <li>IOF;</li>
-            <li>IEG;</li>
-            <li>Empréstimos compulsórios para guerra externa ou calamidade pública.</li>
-        </ul>
-    </section>
-
-    <!-- NOVENTENA -->
-    <section class="section">
-        <h2>8. Anterioridade Nonagesimal — Noventena</h2>
-
-        <span class="tag high">ALTÍSSIMA INCIDÊNCIA</span>
-
-        <p>
-            O tributo não poderá ser cobrado antes de decorridos
-            <strong>90 dias da publicação da lei que o instituiu ou aumentou</strong>,
-            observadas as exceções constitucionais.
-        </p>
-
-        <div class="highlight">
-            <strong>Memorização:</strong>
-            noventena = <strong>90 dias</strong>.
-        </div>
-
-        <h3>Exceções à noventena</h3>
-
-        <ul>
-            <li>II;</li>
-            <li>IE;</li>
-            <li>IOF;</li>
-            <li>IEG;</li>
-            <li>Empréstimos compulsórios para guerra externa ou calamidade pública.</li>
-        </ul>
-
-        <div class="danger">
-            <strong>Pegadinha clássica:</strong>
-            o <strong>IPI NÃO é exceção à noventena</strong>.
-            Ele é exceção à anterioridade anual, mas deve respeitar a noventena.
-        </div>
-    </section>
-
-    <!-- TABELA -->
-    <section class="section">
-        <h2>9. Tabela de Anterioridades — Decore!</h2>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Tributo / Situação</th>
-                    <th>Anterioridade anual</th>
-                    <th>Noventena</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>II</td>
-                    <td class="no">NÃO</td>
-                    <td class="no">NÃO</td>
-                </tr>
-                <tr>
-                    <td>IE</td>
-                    <td class="no">NÃO</td>
-                    <td class="no">NÃO</td>
-                </tr>
-                <tr>
-                    <td>IOF</td>
-                    <td class="no">NÃO</td>
-                    <td class="no">NÃO</td>
-                </tr>
-                <tr>
-                    <td>IPI</td>
-                    <td class="no">NÃO</td>
-                    <td class="yes">SIM</td>
-                </tr>
-                <tr>
-                    <td>IR</td>
-                    <td class="yes">SIM</td>
-                    <td class="no">NÃO</td>
-                </tr>
-                <tr>
-                    <td>IEG</td>
-                    <td class="no">NÃO</td>
-                    <td class="no">NÃO</td>
-                </tr>
-                <tr>
-                    <td>Empréstimo compulsório — guerra/calamidade</td>
-                    <td class="no">NÃO</td>
-                    <td class="no">NÃO</td>
-                </tr>
-                <tr>
-                    <td>Contribuições sociais</td>
-                    <td class="no">NÃO</td>
-                    <td class="yes">SIM</td>
-                </tr>
-                <tr>
-                    <td>IPTU — alteração da base de cálculo</td>
-                    <td class="yes">SIM</td>
-                    <td class="no">NÃO</td>
-                </tr>
-                <tr>
-                    <td>IPVA — alteração da base de cálculo</td>
-                    <td class="yes">SIM</td>
-                    <td class="no">NÃO</td>
-                </tr>
-                <tr>
-                    <td>Regra geral</td>
-                    <td class="yes">SIM</td>
-                    <td class="yes">SIM</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <!-- IRRETROATIVIDADE -->
-    <section class="section">
-        <h2>10. Irretroatividade</h2>
-
-        <span class="tag medium">MÉDIA/ALTA INCIDÊNCIA</span>
-
-        <p>
-            É vedado cobrar tributos em relação a fatos geradores ocorridos
-            antes do início da vigência da lei que os houver instituído ou aumentado.
-        </p>
-
-        <div class="danger">
-            <strong>Não confunda:</strong>
-            <br>
-            Irretroatividade → olha para o <strong>passado</strong>.
-            <br>
-            Anterioridade → determina <strong>quando a cobrança poderá começar</strong>.
-        </div>
-    </section>
-
-    <!-- BENEFÍCIOS -->
-    <section class="section">
-        <h2>11. Redução ou Revogação de Benefícios Fiscais</h2>
-
-        <span class="tag medium">ATENÇÃO À JURISPRUDÊNCIA</span>
-
-        <p>
-            A redução ou revogação de benefício fiscal pode representar
-            aumento indireto da carga tributária.
-        </p>
-
-        <div class="highlight">
-            Em determinadas situações, a retirada de benefício fiscal pode
-            exigir observância das regras de anterioridade.
-        </div>
-
-        <p>
-            Portanto, não é correto afirmar de maneira automática que a
-            revogação de qualquer benefício fiscal jamais está submetida às
-            anterioridades.
-        </p>
-    </section>
-
-    <!-- UNIFORMIDADE -->
-    <section class="section">
-        <h2>12. Uniformidade Geográfica</h2>
-
-        <span class="tag medium">MÉDIA INCIDÊNCIA</span>
-        <span class="tag law">CF, art. 151, I</span>
-
-        <p>
-            A União não pode instituir tributo que não seja uniforme em todo
-            o território nacional ou que implique distinção ou preferência
-            em relação a Estado, Distrito Federal ou Município.
-        </p>
-
-        <div class="highlight">
-            <strong>Exceção:</strong>
-            são admitidos incentivos fiscais destinados a promover o equilíbrio
-            do desenvolvimento socioeconômico entre as diferentes regiões do país.
-        </div>
-
-        <div class="warning">
-            <strong>Atenção:</strong>
-            esse princípio é uma limitação dirigida à <strong>União</strong>,
-            e não indistintamente a todos os entes federativos.
-        </div>
-    </section>
-
-    <!-- SELETIVIDADE -->
-    <section class="section">
-        <h2>13. Seletividade e Não Cumulatividade</h2>
-
-        <h3>Seletividade</h3>
-
-        <ul>
-            <li><strong>IPI:</strong> seletividade é obrigatória;</li>
-            <li><strong>ICMS:</strong> seletividade é facultativa.</li>
-        </ul>
-
-        <div class="warning">
-            <strong>Ponto de prova:</strong>
-            embora a seletividade do ICMS seja constitucionalmente facultativa,
-            a utilização de alíquotas superiores à geral para determinadas
-            operações, como energia elétrica e comunicação, pode encontrar
-            limites na jurisprudência do STF.
-        </div>
-
-        <h3>Não cumulatividade</h3>
-
-        <p>
-            A não cumulatividade evita o efeito cascata, permitindo a compensação
-            do tributo incidente nas etapas anteriores da cadeia.
-        </p>
-
-        <div class="highlight">
-            <strong>Objetivo:</strong>
-            evitar que o mesmo tributo seja economicamente acumulado em
-            sucessivas etapas da produção e circulação.
-        </div>
-    </section>
-
-    <!-- REFORMA -->
-    <section class="section">
-        <h2>14. Princípios Introduzidos pela Reforma Tributária</h2>
-
-        <p>
-            Entre os princípios associados ao novo sistema tributário estão:
-        </p>
-
-        <div class="checklist">
-            <div class="check">✓ Simplicidade</div>
-            <div class="check">✓ Transparência</div>
-            <div class="check">✓ Justiça tributária</div>
-            <div class="check">✓ Cooperação</div>
-            <div class="check">✓ Defesa do meio ambiente</div>
-        </div>
-
-        <h3>Tributação ótima — conceitos importantes</h3>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Conceito</th>
-                    <th>Ideia central</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Progressividade</td>
-                    <td>Contribui para reduzir desigualdades sociais.</td>
-                </tr>
-                <tr>
-                    <td>Não cumulatividade</td>
-                    <td>Permite compensação de créditos das etapas anteriores.</td>
-                </tr>
-                <tr>
-                    <td>Extrafiscalidade</td>
-                    <td>Utilização do tributo para intervenção econômica ou ambiental.</td>
-                </tr>
-                <tr>
-                    <td>Neutralidade</td>
-                    <td>Busca minimizar distorções nas decisões econômicas.</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <!-- PEGADINHAS -->
-    <section class="section">
-        <h2>15. 🚨 Pegadinhas de Concurso</h2>
-
-        <div class="trap">
-            <strong>1. “IPI é exceção à noventena.”</strong>
-            <br>
-            ERRADO. IPI respeita a noventena.
-        </div>
-
-        <div class="trap">
-            <strong>2. “IR não respeita nenhuma anterioridade.”</strong>
-            <br>
-            ERRADO. IR respeita a anterioridade anual, mas não a noventena.
-        </div>
-
-        <div class="trap">
-            <strong>3. “II, IE e IOF devem respeitar as duas anterioridades.”</strong>
-            <br>
-            ERRADO. São exceções às duas.
-        </div>
-
-        <div class="trap">
-            <strong>4. “Noventena significa esperar um exercício financeiro.”</strong>
-            <br>
-            ERRADO. Noventena significa aguardar 90 dias.
-        </div>
-
-        <div class="trap">
-            <strong>5. “Tributo pode ser criado por decreto.”</strong>
-            <br>
-            ERRADO. A instituição depende de lei.
-        </div>
-
-        <div class="trap">
-            <strong>6. “Qualquer atualização monetária representa aumento de tributo.”</strong>
-            <br>
-            ERRADO. A atualização pelo índice oficial não constitui majoração.
-        </div>
-
-        <div class="trap">
-            <strong>7. “Mudança da data de vencimento exige lei.”</strong>
-            <br>
-            ERRADO. A alteração do prazo de pagamento não está sujeita, em regra,
-            à reserva legal do art. 97 do CTN.
-        </div>
-
-        <div class="trap">
-            <strong>8. “Revogação de benefício fiscal nunca precisa respeitar anterioridade.”</strong>
-            <br>
-            ERRADO. A retirada pode representar aumento indireto da carga tributária.
-        </div>
-
-        <div class="trap">
-            <strong>9. “Isonomia significa cobrar exatamente o mesmo de todos.”</strong>
-            <br>
-            ERRADO. A capacidade contributiva permite diferenciações
-            constitucionalmente justificadas.
-        </div>
-
-        <div class="trap">
-            <strong>10. “Uniformidade geográfica é uma limitação dirigida a todos os entes.”</strong>
-            <br>
-            ERRADO. O art. 151, I, dirige-se à União.
-        </div>
-    </section>
-
-    <!-- PRIORIDADE -->
-    <section class="section">
-        <h2>16. Ordem de Prioridade para Revisão</h2>
-
-        <ol>
-            <li><strong>Legalidade tributária</strong></li>
-            <li><strong>Exceções à legalidade</strong></li>
-            <li><strong>Anterioridade anual</strong></li>
-            <li><strong>Noventena</strong></li>
-            <li><strong>Tabela das anterioridades</strong></li>
-            <li><strong>Isonomia</strong></li>
-            <li><strong>Capacidade contributiva</strong></li>
-            <li><strong>Não confisco</strong></li>
-            <li>Irretroatividade</li>
-            <li>Progressividade</li>
-            <li>Seletividade</li>
-            <li>Não cumulatividade</li>
-            <li>Revogação/redução de benefícios fiscais</li>
-            <li>Medida provisória em matéria tributária</li>
-            <li>Uniformidade geográfica</li>
-            <li>Princípios da Reforma Tributária</li>
-        </ol>
-    </section>
-
-    <!-- CONCLUSÃO -->
-    <section class="section">
-        <div class="technical">
-            <h3>📌 Conclusão Técnica — Como responder em prova discursiva</h3>
-
-            <p>
-                As limitações constitucionais ao poder de tributar constituem
-                instrumentos de proteção do contribuinte e de contenção da
-                atuação estatal. Destacam-se os princípios da legalidade,
-                isonomia, capacidade contributiva, não confisco,
-                irretroatividade e anterioridade, além das demais limitações
-                previstas constitucionalmente.
-            </p>
-
-            <p>
-                Para fins de prova, é fundamental distinguir a exigência de lei
-                para instituição ou majoração do tributo das hipóteses
-                excepcionais de alteração de alíquotas, bem como dominar a
-                diferença entre anterioridade anual e anterioridade
-                nonagesimal. Também merece especial atenção a possibilidade
-                de redução ou revogação de benefícios fiscais produzir aumento
-                indireto da carga tributária.
-            </p>
-
-            <p>
-                <strong>
-                    Em síntese, o domínio do art. 150 da Constituição Federal,
-                    do art. 97 do CTN e da tabela de anterioridades constitui
-                    a base para solucionar grande parte das questões sobre
-                    limitações constitucionais ao poder de tributar.
-                </strong>
-            </p>
-        </div>
-    </section>
-
-</main>
-
-<footer>
-    Direito Tributário — Resumo de revisão para concursos<br>
-    Material estruturado a partir da Aula 01
-</footer>
-
+  </main>
+
+  <footer>
+    Material de apoio ao estudo para concursos públicos.
+  </footer>
 </body>
 </html>
